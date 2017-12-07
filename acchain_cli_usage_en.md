@@ -1,4 +1,4 @@
-#ACCHAIN-CLI User Guide
+# ACCHAIN-CLI User Guide
 ---
 Index
 =================
@@ -48,20 +48,20 @@ Index
       * [4.32 Check the original place of all nodes/peers' IP address in the whole network](#432-check-the-original-place-of-all-nodespeers-ip-address-in-the-whole-network)
 
 ---
-##0 ACCHAIN-CLI Overview
+## 0 ACCHAIN-CLI Overview
 From [Acchain Whitepaper](/acchain_whitepaper_en.md)
 > ACCHAIN-CLI is a command line interface provided by acchain system. Within the ACCHAIN-CLI, developers can rapidly establish a sidechain by making some simple configurations according to instructions and then create any kind of applications on this sidechain. The system also provides a series of APIs to help developers to create complicate smart contract applications. The functions of these APIs include consensus, strong random numbers, database, and cryptology and so on.
 
-##1 ACCHAIN-CLI Installation
+## 1 ACCHAIN-CLI Installation
 - Install nodejs package manager **npm**
 
 `sudo apt-get install npm`
  
-##2 ACCHAIN-CLI Synopsis
+## 2 ACCHAIN-CLI Synopsis
 `acchain-cli [option] [command]`
 
-##3 ACCHAIN-CLI Option Description
-###3.1 Print help information
+## 3 ACCHAIN-CLI Option Description
+### 3.1 Print help information
 **Parameter:** 	-h, --help  
 **Return:**     Help document of ACCHAIN-CLI commands or sub-commands  
 **Usage:**  	
@@ -125,7 +125,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getvoteddelegates -h #print ACC
     -l, --limit <n>   
 ```
 
-###3.2 Print ACCHAIN-CLI version information 
+### 3.2 Print ACCHAIN-CLI version information 
 **Parameter:** 	-V, --version  
 **Return:**     Output the version information  
 **Usage:**  `acchain-cli -V`	
@@ -137,7 +137,7 @@ root@acchain:~# acchain-cli -V
 1.0.0
 ```
 
-###3.3 Appoint the host name or IP address of target Acchain Server
+### 3.3 Appoint the host name or IP address of target Acchain Server
 **Parameter:** -H, --host &lt;host&gt; [command] *(Default: 127.0.0.1)* 
 
 **Return:** none
@@ -150,7 +150,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 getheight     #check block height of ac
 101236
 ```
 
-###3.4 Appoint the port number of target Acchain server
+### 3.4 Appoint the port number of target Acchain server
 **Parameter:** -P, --port &lt;port&gt; [command] *(Default: 4000)*
 
 **Return:** none
@@ -164,7 +164,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getheight
 102313
 ```
 
-###3.5 Appoint the main chain
+### 3.5 Appoint the main chain
 **Parameter:** -M, --main     *(Default: test chain)*
 
 **Return:** none
@@ -178,8 +178,8 @@ root@acchain:~# acchain-cli -M -H *.*.*.105 -P 4000 getheight  #check the block 
 9388
 ```
 
-##4 ACCHAIN-CLI supported commands
-###4.1 Check the blockchain height
+## 4 ACCHAIN-CLI supported commands
+### 4.1 Check the blockchain height
 **Command:** getheight
 
 **Return:** blockchain height
@@ -193,7 +193,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getheight
 105387
 ```
 
-###4.2 Check the blockchain status
+### 4.2 Check the blockchain status
 **Command:** getblockstatus
 
 **Return:** a JSON format string including blockchain height, transaction fee, milestone, the reward of each delegate's block and the whole current volume
@@ -214,7 +214,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getblockstatus
 }
 ```
 
-###4.3 Check account information by password
+### 4.3 Check account information by password
 **Command:**  openaccount [secret]
 
 **Return:** A JSON string containing account information such as address, balance, public key, and second public key and so on.
@@ -238,7 +238,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 openaccount "fault still attack
 }
 ```
 
-###4.4 Check account information by public key
+### 4.4 Check account information by public key
 **Command:**openaccountbypublickey [publickey]
 
 **Return:** A JSON string containing  account information such as address, balance, public key, and second public key and so on.
@@ -261,7 +261,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 openaccountbypublickey "bd1e78c
 }
 ```
 
-###4.5 Check account balance by account address
+### 4.5 Check account balance by account address
 **Command:** getbalance [address]
 
 **Return:** A integer number that will be the account balance when divided by 100000000
@@ -275,7 +275,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getbalance 16723473400748954103
 20000000000
 ```
 
-###4.6 Check account information by account address 
+### 4.6 Check account information by account address 
 **Command:** getaccount [address]
 
 **Return:** A JSON string containing  account information such as address, balance, public key, and second public key and so on.
@@ -299,7 +299,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getaccount 16723473400748954103
 }
 ```
 
-###4.7 Check delegates voted by the account address
+### 4.7 Check delegates voted by the account address
 **Command:** getvoteddelegates [options] [address]
 
 **Return:** A list containing the delegates voted by this account
@@ -332,7 +332,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getvoteddelegates 1574554029389
        productivity: '99.23' }]
 ```
 
-###4.8 Check the whole number of delegates
+### 4.8 Check the whole number of delegates
 **Command:** getdelegatescount
 
 **Return:** An integer number indicates the count of all delegates
@@ -346,7 +346,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getdelegatescount
 232
 ```
 
-###4.9 Check delegates information and sort out
+### 4.9 Check delegates information and sort out
 **Command:**getdelegates [options]
 
 **Return:** A list containing all delegates' information
@@ -377,7 +377,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getdelegates -o 1 -l 1 -s rate:
 ]
 ```
 
-###4.10 Check the voters of the delegate by his public key
+### 4.10 Check the voters of the delegate by his public key
 **Command:** getvoters [publicKey]
 
 **Return:** A list containing all the voters
@@ -403,7 +403,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getvoters "ae256559d06409435c04
   }]
 ```
   
-###4.11 Check detail information of delegate by public key
+### 4.11 Check detail information of delegate by public key
 **Command:** getdelegatebypublickey [publicKey]
 
 **Return:** A JSON string containing delegate's detail information such as name, address, votes, produced blocks, and forging reward and so on.
@@ -429,7 +429,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getdelegatebypublickey "ae25655
   "forged": "174083762523"
 }
 ```
-###4.12 Check the detail information of delegate by the name
+### 4.12 Check the detail information of delegate by the name
 **Command:** getdelegatebyusername [username]
 
 **Return:** A JSON string containing delegate's detail
@@ -456,7 +456,7 @@ root@acchain:~# acchain-cli -H 101.200.162.236 -P 4096 getdelegatebyusername "wg
 }
 ```
 
-###4.13 Check/analyse block information in whole network
+### 4.13 Check/analyse block information in whole network
 **Command:** getblocks [options]
 
 **Return:** A JSON string containing query result status and queried block information
@@ -492,7 +492,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getblocks -o 1 -l 1 -r 35000000
   "count": 45350
 }
 ```
-###4.14 Check block information by block ID
+### 4.14 Check block information by block ID
 **Command:** getblockbyid [id]
 
 **Return:** A JSON string containing block ID, block height, previous block ID, total transaction number, total amount, transaction fee, reward, hash, block generator public key and ID, block signature, quantity of confirmation and so on.
@@ -522,7 +522,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getblockbyid 142594212804090687
 }
 ```
 
-###4.15 Check block information by block height
+### 4.15 Check block information by block height
 **Command:** getblockbyheight [height]
 
 **Return:** A JSON string containing block ID, block height, previous block ID, total transaction number, total amount, transaction fee, reward, hash, block generator public key and ID, block signature, quantity of confirmation and so on.
@@ -553,7 +553,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getblockbyheight 1
 }
 ```
 
-###4.16 Check the peer/node status
+### 4.16 Check the peer/node status
 **Command:** getpeers [options] 
 
 **Return:** A list containing peer ip, port, operation system, and acchain version, and so on.
@@ -584,7 +584,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getpeers -o 1 -l 2
 ]
 ```
 
-###4.17 Check unconfirmed transaction by public key
+### 4.17 Check unconfirmed transaction by public key
 **Command:** getunconfirmedtransactions [options]
 
 **Return:** A list containing details of all transactions that are not confirmed yet
@@ -613,7 +613,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 getunconfirmedtransactions -k "
 ]
 ```
 
-###4.18 Check/analyse transaction information in the whole network
+### 4.18 Check/analyse transaction information in the whole network
 **Command:** gettransactions [options]
 
 **Return:** A list containing all selected transaction's detail information
@@ -664,7 +664,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 gettransactions -o 1 -l 2 #chec
 ]
 ```
 
-###4.19 Check transaction detail inforamtion by transaction ID
+### 4.19 Check transaction detail inforamtion by transaction ID
 **Command:** gettransaction [id]
 
 **Return:** A JSON string containing transaction ID, block height, block ID, time stamp, sender's public key, recipient's address, total amount, fee, signature, confirmation quantity, assets, and etc.
@@ -694,7 +694,7 @@ root@acchain:~# acchain-cli -H 127.0.01 -P 4000 gettransaction 17192581936339156
 }
 ```
 
-###4.20 Transfer money
+### 4.20 Transfer money
 **Command:** sendmoney [option]
 
 **Return:** transaction result. true=success, otherwise error message
@@ -708,7 +708,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 sendmoney -e "motion group blos
 true
 ```
 
-###4.21 Register delegate
+### 4.21 Register delegate
 **Command:** registerdelegate [options]
 
 **Return:** Registering result，ture=success, otherwise error message
@@ -722,7 +722,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 registerdelegate -e "fault stil
 true
 ```
 
-###4.22 Vote for delegate 
+### 4.22 Vote for delegate 
 **Command:** upvote [options] 
 
 **Return:** Voting result, ture=success, otherwise error message
@@ -736,7 +736,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 upvote -e "fault still attack a
 true
 ```
 
-###4.23 Cancel the vote for delegate
+### 4.23 Cancel the vote for delegate
 **Command:**downvote [options]
 
 **Return:** Cancelling vote result, ture=success, otherwise error message
@@ -750,7 +750,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 downvote -e "fault still attack
 true
 ```
 
-###4.24 Set second password (secret)
+### 4.24 Set second password (secret)
 **Command:** setsecondsecret [options]
 
 **Return:** Setting up result, ture=success, otherwise error message
@@ -764,7 +764,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 setsecondsecret -e "fault still
 true
 ```
 
-###4.25 Register Dapp (decentralized application)
+### 4.25 Register Dapp (decentralized application)
 **Command:** registerdapp [options]
 
 **Return:**
@@ -775,7 +775,7 @@ true
 
 
 
-###4.26 Contract related command
+### 4.26 Contract related command
 **Command:** contract [options]
 
 **Return:** 
@@ -787,7 +787,7 @@ true
 **Example:**
 
 
-###4.27 Encrypt related command
+### 4.27 Encrypt related command
 **Command:** crypto [option]
 
 **Return:** A list
@@ -807,7 +807,7 @@ root@acchain:~# acchain-cli -H 45.32.248.33 -P 4096 crypto -g
 Done
 ```
 
-###4.28 Dapp related command
+### 4.28 Dapp related command
 **Command:** dapps [options] 
 
 **Return:** 
@@ -816,7 +816,7 @@ Done
 
 **Example:**
 
-###4.29 Create genesis block file
+### 4.29 Create genesis block file
 **Command:** creategenesis [options]
 
 **Return:** to create a genesis block file (genesisBlock.json) and log file (genGenesisBlock.log) in the current folder
@@ -840,7 +840,7 @@ root@acchain:~# more genesisBlock.json
 }
 ```
 
-###4.30 Check the status of all nodes/peers of the whole network
+### 4.30 Check the status of all nodes/peers of the whole network
 **Command:** peerstat
 
 **Return:** The peer's information, containing peer IP address, port, version and block height and etc.
@@ -856,7 +856,7 @@ root@acchain:~# acchain-cli -H 127.0.0.1 -P 4000 peerstat
 45.32.19.241:4096 1.0.0 106036
 ```
 
-###4.31 Check delegates' status in the whole network
+### 4.31 Check delegates' status in the whole network
 **Command:** delegatestat
 
 **Return:** Delegates' information, containing delegates' name, address, approval votes, productivity, the amount of generated blocks, block height, ID, and the time of last block generated and so on.
@@ -879,7 +879,7 @@ intmaster	7321911740133937168	97	88.36%	100%	1032	105871	6757656887343300317	201
 mode_6	9248745407080572308	8	88.48%	100%	1060	105873	3777454410915098884	2016/08/17 21:53:10(25 mins ago)
 ```
 
-###4.32 Check the original place of all nodes/peers' IP address in the whole network
+### 4.32 Check the original place of all nodes/peers' IP address in the whole network
 **Command:** ipstat
 
 **Return:** the original place of each peer's IP address
